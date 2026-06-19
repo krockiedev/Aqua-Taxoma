@@ -20,7 +20,6 @@ sky_horizon_color = Color(0.90994173, 0.5379891, 0.48068726, 1)
 sky_material = SubResource("ProceduralSkyMaterial_ujswb")
 
 [sub_resource type="Environment" id="Environment_mdal7"]
-background_mode = 2
 sky = SubResource("Sky_0oxhw")
 reflected_light_source = 2
 

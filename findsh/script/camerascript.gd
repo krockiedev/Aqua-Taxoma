@@ -27,13 +27,11 @@ func _process(delta: float):
 	
 	var target_pitch: float = 0.0
 	if mouse_y_normalized > 0.0:
-		# Mouse down -> Looking DOWN (Positive X pitch). Remove the negative sign!
+		
 		target_pitch = mouse_y_normalized * look_intensity_down
 	else:
-		# Mouse up -> Looking UP (Negative X pitch). Keep the negative sign!
 		target_pitch = mouse_y_normalized * look_intensity_up
 	
-	# Clamp everything safely
 	target_yaw = clamp(target_yaw, -max_look_angle, max_look_angle)
 	target_pitch = clamp(target_pitch, -max_look_angle, max_look_down_angle)
 
