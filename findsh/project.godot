@@ -24,6 +24,10 @@ FishInfo="*uid://t0oty28sn0sl"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+ocean=""
+
 [input]
 
 mouse_1={
