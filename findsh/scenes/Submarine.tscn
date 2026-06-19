@@ -42,3 +42,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, -2.262668e-08, 0.9659258, 0.258819
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.3025089, 1.7824998)
 
 [node name="Submarine" parent="." unique_id=413259733 instance=ExtResource("4_xwqdn")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2009405609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.1540304)
+light_color = Color(1, 1, 0.3254902, 1)
+light_energy = 0.551
+light_volumetric_fog_energy = 0.0
+omni_attenuation = 0.252
