@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cibhnllo05mne" path="res://scenes/player.tscn" id="1_orw0t"]
 [ext_resource type="Shader" uid="uid://cihrog6pq3yts" path="res://assets/camera_underwater.gdshader" id="2_q6hnp"]
 [ext_resource type="PackedScene" uid="uid://dsaget4xeennn" path="res://scenes/lever.tscn" id="4_t56lg"]
+[ext_resource type="PackedScene" uid="uid://c7jof4wqngqrr" path="res://assets/Blender/Submarine.glb" id="4_xwqdn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i2eo"]
 render_priority = 0
@@ -10,7 +11,7 @@ shader = ExtResource("2_q6hnp")
 
 [sub_resource type="QuadMesh" id="QuadMesh_4r5cb"]
 material = SubResource("ShaderMaterial_7i2eo")
-size = Vector2(2.3, 1.9)
+size = Vector2(10, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdal7"]
 transparency = 1
@@ -19,12 +20,12 @@ albedo_color = Color(0.14901961, 1, 1, 0.22352941)
 
 [sub_resource type="QuadMesh" id="QuadMesh_t56lg"]
 material = SubResource("StandardMaterial3D_mdal7")
-size = Vector2(2.2, 1.8)
+size = Vector2(10, 6)
 
 [node name="Submarine" type="Node3D" unique_id=1938863406 groups=["submarine"]]
 
 [node name="Glass" type="Node3D" parent="." unique_id=232208397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11491355, -0.3129081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41958722, 0.7199106)
 
 [node name="CameraWave" type="MeshInstance3D" parent="Glass" unique_id=1970765492]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3.088806)
@@ -34,22 +35,10 @@ mesh = SubResource("QuadMesh_4r5cb")
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 3.088806)
 mesh = SubResource("QuadMesh_t56lg")
 
-[node name="SubmarineMesh" type="CSGCombiner3D" parent="." unique_id=709795884]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="SubmarineMesh" unique_id=1941403133]
-size = Vector3(3.0732422, 2.9492188, 5.4521484)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="SubmarineMesh/CSGBox3D" unique_id=695906205]
-operation = 2
-size = Vector3(2.5, 2.5, 5)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="SubmarineMesh/CSGBox3D" unique_id=737442960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12072754, 2.241798)
-operation = 2
-size = Vector3(2.2, 1.8, 1.55)
-
 [node name="Lever" parent="." unique_id=142756749 instance=ExtResource("4_t56lg")]
-transform = Transform3D(-1, 0, -8.742278e-08, -2.262668e-08, 0.9659258, 0.25881904, 8.444392e-08, 0.25881904, -0.9659258, 0, -0.8998305, 2.2388444)
+transform = Transform3D(-1, 0, -8.742278e-08, -2.262668e-08, 0.9659258, 0.25881904, 8.444392e-08, 0.25881904, -0.9659258, 0, -0.331082, 2.2388444)
 
 [node name="Player" parent="." unique_id=1294710407 instance=ExtResource("1_orw0t")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.056785822, 0.8437645)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.3025089, 1.7824998)
+
+[node name="Submarine" parent="." unique_id=413259733 instance=ExtResource("4_xwqdn")]
