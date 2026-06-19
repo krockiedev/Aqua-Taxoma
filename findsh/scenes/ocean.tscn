@@ -39,10 +39,6 @@ fog_depth_end = 20.0
 [node name="Ocean" type="Node3D" unique_id=720181083]
 script = ExtResource("1_fiuhb")
 
-[node name="MediumFish" parent="." unique_id=31327315 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047058105, 0.1091156, 5.7120347)
-script = null
-
 [node name="LargeFish" parent="." unique_id=1805165206 instance=ExtResource("3_4imn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.449929, 0.16184998, 10.6224165)
 
@@ -65,6 +61,8 @@ light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
 light_specular = 6.7
 shadow_enabled = true
 
-[node name="SmallFish" parent="." unique_id=1261512445 instance=ExtResource("3_mn261")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80088484, 0, 4.829066)
-script = null
+[node name="Medium_Fish" parent="." unique_id=335977634 instance=ExtResource("2_vjho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 10)
+
+[node name="Small_Fish" parent="." unique_id=347440391 instance=ExtResource("3_mn261")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53737915, 0, 9.568615)
