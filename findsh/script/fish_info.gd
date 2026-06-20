@@ -1,13 +1,15 @@
 extends Control
 
+var draggable_picture_scene = preload("res://scenes/draggable_picture.tscn")
+
 var current_fish = ""
 var previous_pressed_fish = ""
 var pressed_fish = ""
 
 var book_pages = {
-	0: ["big fih", "This fih is big and it is found in mid level. It is also pruple."]
-	,1: ["mid fih", "This fih is medium sized yuhhhhhhhhhh"]
-	,2: ["san diego", "Killer fish"]
+	0: ["Large Fish", "This fih is big and it is found in mid level. It is also pruple."]
+	,1: ["Medium Fish", "This fih is medium sized yuhhhhhhhhhh"]
+	,2: ["Small Fish", "Killer fish"]
 }
 
 var logged_fish = []
@@ -27,7 +29,9 @@ func _physics_process(_delta: float) -> void:
 	if previous_pressed_fish != pressed_fish:
 		# pressed fish should now show up on subviewport
 		
-		#$SubViewportContainer.show()
+		var draggable_picture = draggable_picture_scene.instantiate()
+		self.add_child(draggable_picture)
+		draggable_picture.position = Vector2(673.576,-1.288)
 		#%Camera3D.look_at()
 		pass
 	
