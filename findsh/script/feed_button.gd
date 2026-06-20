@@ -10,13 +10,12 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 				$GPUParticles3D.emitting = true
 				await get_tree().create_timer(4.0).timeout
 				$GPUParticles3D.emitting = false
-				await get_tree().create_timer(2.0).timeout
 				$Fish_Spawn_Timer.start()
 
 
 var coral_fishes = {
-	"Small_Fish" = preload("uid://b31mgblwlr0nj")
-	,"Medium_Fish" = preload("uid://d4h7ar3h2a1ke")
+	"Small_Fish" = ["Small_Fish",preload("uid://b31mgblwlr0nj")]
+	,"Medium_Fish" = ["Medium_Fish",preload("uid://d4h7ar3h2a1ke")]
 }
 
 var mid_ocean_fishes = {
@@ -35,10 +34,12 @@ func _on_fish_spawn_timer_timeout() -> void:
 	if FishInfo.current_depth_level == "mid_ocean": fish_dict = mid_ocean_fishes
 	if FishInfo.current_depth_level == "abyss": fish_dict = abyss_fishes
 	
-	var fish: Area3D = fish_dict[fish_dict.keys().pick_random()].instantiate()
+	var random_key = fish_dict[fish_dict.keys().pick_random()]
+	var fish: Area3D = random_key[1].instantiate()
 	var random_dir = randi_range(1,2)
 	fish.dir_mode = random_dir
-	fish.global_position = get_node("SpawnSide" + str(random_dir)).get_children().pick_random().position
-	#fish.name = 
 	Ocean.add_child(fish)
+	fish.global_position = get_node("SpawnSide" + str(random_dir)).get_children().pick_random().global_position
+	fish.name = random_key[0]
+	
 	

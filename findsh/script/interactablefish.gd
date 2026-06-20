@@ -7,21 +7,28 @@ extends Area3D
 
 var dir_mode = 0
 
-var base_name
+var base_name: String
 
 func _ready() -> void:
 	base_name = name.replace("_"," ")
-	for i in range(9):
+	for i in range(10):
 		base_name = base_name.replace(str(i),"")
 
 
 func _physics_process(delta: float) -> void:
+	#name fix
+	if base_name.contains("@"):
+		base_name = name.replace("_"," ")
+		for i in range(10):
+			base_name = base_name.replace(str(i),"")
+	
 	if dir_mode == 1:
 		global_rotation_degrees = Vector3(0,-90,0)
-		global_position += Vector3(-0.01*randf_range(1,3)*delta,0,0)
+		global_position += Vector3(-0.5*randf_range(1,4)*delta,0,0)
+		#print(global_position)
 	if dir_mode == 2:
-		rotation_degrees = Vector3(0,90,0)
-		position += Vector3(0.01*randf_range(1,3)*delta,0,0)
+		global_rotation_degrees = Vector3(0,90,0)
+		global_position += Vector3(0.5*randf_range(1,4)*delta,0,0)
 		
 	if FishInfo.pressed_fish != base_name:
 		$Mesh.get_active_material(0).albedo_color = original_albedo
