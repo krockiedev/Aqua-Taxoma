@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://dsaget4xeennn"]
 
-[ext_resource type="Script" uid="uid://byp0fawrros0h" path="res://script/lever.gd" id="1_4kwec"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_0oxhw"]
 size = Vector3(0.2607422, 0.05517578, 0.5498047)
 
@@ -23,7 +21,6 @@ material = SubResource("StandardMaterial3D_ncfea")
 size = Vector3(0.14453125, 0.05847168, 0.16210938)
 
 [node name="Lever" type="Node3D" unique_id=142756749]
-script = ExtResource("1_4kwec")
 
 [node name="Base" type="MeshInstance3D" parent="." unique_id=1112448584]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.03542778, -0.070074365)
