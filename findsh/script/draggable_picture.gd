@@ -8,7 +8,7 @@ var offset: Vector2
 @onready var original_parent = get_parent()
 
 func _process(_delta: float) -> void:
-	if draggable:
+	if draggable and FishInfo.logged_fish.find(name) == -1:
 		if Input.is_action_just_pressed("mouse_1"):
 			offset = get_global_mouse_position() - global_position
 			GlobalDraggingHandler.is_dragging = true
@@ -22,6 +22,10 @@ func _process(_delta: float) -> void:
 				size_tween.tween_property(self, "scale", Vector2(0.54,0.54), 0.2).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "global_position", body_ref.global_position,0.2).set_ease(Tween.EASE_OUT)
 				reparent(body_ref)
+				FishInfo.get_node("Confirm").show()
+				FishInfo.get_node("Undo").show()
+				FishInfo.get_node("Log_Book").get_node("Previous_Page").hide()
+				FishInfo.get_node("Log_Book").get_node("Next_Page").hide()
 			else:
 				size_tween.tween_property(self, "scale", Vector2.ONE, 0.2).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "position", Vector2(888.0,189),0.2).set_ease(Tween.EASE_OUT)
@@ -29,7 +33,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_draggable_mouse_entered() -> void:
-	if not GlobalDraggingHandler.is_dragging:
+	if not GlobalDraggingHandler.is_dragging and not is_inside_holder:
 		draggable = true
 		if !is_inside_holder: scale = Vector2(1.02,1.02)
 		else: scale = Vector2(0.55,0.55)

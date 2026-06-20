@@ -8,9 +8,12 @@ shading_mode = 0
 grow_amount = 0.03
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6it2"]
+resource_local_to_scene = true
 next_pass = SubResource("StandardMaterial3D_r5tag")
+albedo_color = Color(0, 0.17254902, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jhiki"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_r6it2")
 size = Vector3(1, 0.86157227, 1.9033203)
 
@@ -19,7 +22,6 @@ size = Vector3(1.1191406, 1, 2.0566406)
 
 [node name="Medium_Fish" type="Area3D" unique_id=335977634]
 script = ExtResource("1_r6it2")
-fish_name = "medium_fish"
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1805165206]
 mesh = SubResource("BoxMesh_jhiki")

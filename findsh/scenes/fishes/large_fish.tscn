@@ -18,6 +18,7 @@ albedo_color = Color(1, 0, 1, 1)
 grow = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1ohp"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_7m4pi")
 size = Vector3(1.588623, 1.3237, 2.2513428)
 

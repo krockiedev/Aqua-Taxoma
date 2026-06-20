@@ -11,7 +11,7 @@ grow_amount = 0.03
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m4pi"]
 resource_local_to_scene = true
 next_pass = SubResource("StandardMaterial3D_r5tag")
-albedo_color = Color(0.25490198, 1, 1, 1)
+albedo_color = Color(1, 0.5019608, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ekacj"]
 resource_local_to_scene = true

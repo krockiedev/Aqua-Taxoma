@@ -57,14 +57,14 @@ transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.725
 light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
 light_specular = 6.7
 
-[node name="Small_Fish" parent="." unique_id=347440391 instance=ExtResource("3_mn261")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73448974, 0.1783092, 8.640537)
+[node name="Large_Fish" parent="." unique_id=335977634 instance=ExtResource("3_4imn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6434356, 0, 9.587545)
 
-[node name="Large_Fish" parent="." unique_id=453647276 instance=ExtResource("3_4imn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10.587126)
+[node name="Medium_Fish" parent="." unique_id=924532265 instance=ExtResource("2_vjho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.839272, 0, 9.587545)
 
-[node name="Medium_Fish" parent="." unique_id=335977634 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9902611, 0, 8)
+[node name="Medium_Fish2" parent="." unique_id=772996996 instance=ExtResource("2_vjho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.792581, 0, 9.587545)
 
-[node name="Large_Fish2" parent="." unique_id=1448234111 instance=ExtResource("3_4imn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7960606, 0, 7.7678795)
+[node name="Small_Fish" parent="." unique_id=654725690 instance=ExtResource("3_mn261")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.442403, 0, 9.587545)
