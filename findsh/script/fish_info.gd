@@ -14,7 +14,7 @@ var logged_fish = []
 
 func _physics_process(delta: float) -> void:
 	if current_fish != "": 
-		var current_fish_name_text = current_fish
+		var current_fish_name_text = current_fish.replace("_"," ")
 		if logged_fish.find(current_fish) == -1:
 			current_fish_name_text = "???"
 		$Label.text = current_fish_name_text
@@ -23,7 +23,13 @@ func _physics_process(delta: float) -> void:
 	
 	$Log_Book/Fish_Name.text = book_pages[page][0]
 	$Log_Book/Fish_Description.text = book_pages[page][1]
-
+	
+	if previous_pressed_fish != pressed_fish:
+		# pressed fish should now show up on subviewport
+		
+		$SubViewportContainer.show()
+		%Camera3D.look_at()
+		pass
 
 var page = 0
 func _on_previous_page_pressed() -> void:
@@ -37,8 +43,11 @@ func _on_next_page_pressed() -> void:
 
 func _on_open_book_pressed() -> void:
 	if $Open_Book.text == "Open Log Book":
+		print("tae")
 		$Log_Book.show()
 		$Open_Book.text = "Close Log Book"
 	else:
 		$Log_Book.hide()
 		$Open_Book.text = "Open Log Book"
+
+# 140x140

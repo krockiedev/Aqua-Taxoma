@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bn6tdw63ftae6" path="res://script/ocean.gd" id="1_fiuhb"]
 [ext_resource type="PackedScene" uid="uid://tnifqsonfwlr" path="res://scenes/Submarine.tscn" id="2_fiuhb"]
-[ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/medium_fish.tscn" id="2_vjho5"]
-[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/large_fish.tscn" id="3_4imn2"]
-[ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/small_fish.tscn" id="3_mn261"]
+[ext_resource type="PackedScene" uid="uid://d4h7ar3h2a1ke" path="res://scenes/fishes/medium_fish.tscn" id="2_vjho5"]
+[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/large_fish.tscn" id="3_4imn2"]
+[ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/fishes/small_fish.tscn" id="3_mn261"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mn261"]
 size = Vector3(1.6311035, 2.0878906, 1)
@@ -57,11 +57,14 @@ transform = Transform3D(1, 0, 0, 0, 0.7253744, 0.68835455, 0, -0.68835455, 0.725
 light_color = Color(1.540184e-06, 0.855967, 0.8580621, 1)
 light_specular = 6.7
 
-[node name="Medium_Fish" parent="." unique_id=335977634 instance=ExtResource("2_vjho5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3856702, 0.1783092, 11.842656)
-
 [node name="Small_Fish" parent="." unique_id=347440391 instance=ExtResource("3_mn261")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07695073, 0.1783092, 11.3633175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73448974, 0.1783092, 8.640537)
 
 [node name="Large_Fish" parent="." unique_id=453647276 instance=ExtResource("3_4imn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 13.309906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10.587126)
+
+[node name="Medium_Fish" parent="." unique_id=335977634 instance=ExtResource("2_vjho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9902611, 0, 8)
+
+[node name="Large_Fish2" parent="." unique_id=1448234111 instance=ExtResource("3_4imn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7960606, 0, 7.7678795)

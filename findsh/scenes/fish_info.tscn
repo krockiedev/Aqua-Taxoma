@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bcjr5okwa3k5q" path="res://script/fish_info.gd" id="1_00l1l"]
 [ext_resource type="Texture2D" uid="uid://dtw6lok5qkmjw" path="res://assets/dashed_image_frame.png" id="2_erwc4"]
+[ext_resource type="PackedScene" uid="uid://clyvaorjeacdb" path="res://scenes/fishes/large_fish.tscn" id="2_iod5n"]
+[ext_resource type="PackedScene" uid="uid://b31mgblwlr0nj" path="res://scenes/fishes/small_fish.tscn" id="3_bsbeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdal7"]
+size = Vector2(316, 318)
+
+[sub_resource type="Environment" id="Environment_iod5n"]
+background_mode = 1
+background_color = Color(0.9372549, 0.96862745, 0.92156863, 1)
 
 [node name="Fish_Info" type="Control" unique_id=690316]
 layout_mode = 3
@@ -12,6 +21,34 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_00l1l")
+
+[node name="Draggable" type="Area2D" parent="." unique_id=489878251]
+position = Vector2(935, 211)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable" unique_id=1477477003]
+position = Vector2(148, 149)
+shape = SubResource("RectangleShape2D_mdal7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Draggable" unique_id=49420251]
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="SubViewport" type="SubViewport" parent="Draggable/SubViewportContainer" unique_id=454675416]
+handle_input_locally = false
+size = Vector2i(300, 300)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Draggable/SubViewportContainer/SubViewport" unique_id=230873473]
+unique_name_in_owner = true
+transform = Transform3D(0.6883545, -0.20601746, 0.69550335, 0, 0.95881975, 0.28401533, -0.72537446, -0.19550322, 0.6600079, 1.5079557, 0.37206578, 1.5984035)
+environment = SubResource("Environment_iod5n")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=654929814]
+
+[node name="Small_Fish" parent="Node3D" unique_id=1754167260 instance=ExtResource("3_bsbeo")]
+
+[node name="Large_Fish" parent="Node3D" unique_id=335977634 instance=ExtResource("2_iod5n")]
+visible = false
 
 [node name="Label" type="Label" parent="." unique_id=101630820]
 layout_mode = 1
@@ -39,12 +76,10 @@ offset_top = -18.0
 offset_right = 168.0
 offset_bottom = 18.0
 grow_vertical = 2
-mouse_filter = 2
 theme_override_font_sizes/font_size = 20
 text = "Open Log Book"
 
 [node name="Log_Book" type="ColorRect" parent="." unique_id=1926798170]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.30800003
@@ -114,7 +149,6 @@ offset_right = -2.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
 theme_override_font_sizes/font_size = 30
 text = "<"
 
@@ -131,7 +165,6 @@ offset_right = 28.5
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
 theme_override_font_sizes/font_size = 30
 text = ">"
 
