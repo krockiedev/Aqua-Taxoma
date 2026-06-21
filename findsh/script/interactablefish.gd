@@ -7,9 +7,9 @@ extends Area3D
 
 var y_escape = 0
 var z_escape = 0
-var x_escape = 0
+var x_escape = 0.5
 
-var running_rotation = randi_range(0,30)
+var running_rotation = randi_range(0,20)
 
 var dir_mode = 0
 
@@ -29,17 +29,17 @@ func _physics_process(delta: float) -> void:
 			base_name = base_name.replace(str(i),"")
 	
 	if FishInfo.fish_running:
-		y_escape = randf_range(-0.5,0.5)
-		z_escape = randf_range(-0.5,0)
-		x_escape = randf_range(1.5,2)
-		
+		y_escape = randf_range(-3,3)
+		z_escape = randf_range(3,5)
+		x_escape = randf_range(2,4)
+		running_rotation = randf_range(0,20)
 	
 	if dir_mode == 1:
-		global_rotation_degrees = Vector3(0,-90,0)
+		global_rotation_degrees = Vector3(0,-90-running_rotation,0)
 		global_position += Vector3(-x_escape*randf_range(1,4)*delta,y_escape*randf_range(1,4)*delta,z_escape*randf_range(1,4)*delta)
 		#print(global_position)
 	if dir_mode == 2:
-		global_rotation_degrees = Vector3(0,90,0)
+		global_rotation_degrees = Vector3(0,90+running_rotation,0)
 		global_position += Vector3(x_escape*randf_range(1,4)*delta,y_escape*randf_range(1,4)*delta,x_escape*randf_range(1,4)*delta)
 		
 	if FishInfo.pressed_fish != base_name:
@@ -77,6 +77,9 @@ func _on_fish_pressed(_camera: Node, event: InputEvent, event_position: Vector3,
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			FishInfo.previous_pressed_fish = FishInfo.pressed_fish
 			FishInfo.pressed_fish = base_name
+			FishInfo.get_node("Camera_Flash").color = Color("ffffff")
+			var camera_flash_tween = create_tween()
+			camera_flash_tween.tween_property(FishInfo.get_node("Camera_Flash"),"color",Color("ffffff00"),0.7)
 			
 			$Mesh.get_active_material(0).albedo_color = Color("00ffff7e")
 			FishInfo.fish_running = true
